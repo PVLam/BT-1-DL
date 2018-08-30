@@ -19,18 +19,21 @@ int main()
 			case 2:
 				Hienthi(a, n);
 				break;
-			/*case 3: 
+			case 3: 
 				Docfile(a, n);
 				break;
 			case 4: 
 				Ghifile(a,n);
-				break;*/
+				break;
 			case 5:
 				Sinhso(a,n);
 				break;
 			case 0:
+			{
 				break;
+			}
 		}
+		system("clear");
 	}while(c!=0);
 }
 

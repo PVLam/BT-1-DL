@@ -6,23 +6,23 @@ using namespace std;
 
 void menu()
 {
-	cout<<"1. Them 1 so: \n";
+	cout<<"\n1. Them 1 so: \n";
 	cout<<"2. Hien thi: \n";
 	cout<<"3. Nap kho so tu file: \n";
 	cout<<"4. Luu vao file: \n";
 	cout<<"5. Sinh so ngau nhien: \n";
-	cout<<"0. An phim bat ky de ket thuc chuong trinh \n";
+	cout<<"0. An phim 0 de ket thuc chuong trinh \n";
 	return;
 }
 
-void Themso(int &a[], int &n)
+void Themso(int a[], int &n)
 {
 	cout<<"Nhap so: ";
 	int f; cin>>f;
 	a[n++] = f;
 }
 
-void Hienthi(int &a[], int &n)
+void Hienthi(int a[], int &n)
 {
 	for (int i = 0; i<n ; i++)
 	{
@@ -30,41 +30,63 @@ void Hienthi(int &a[], int &n)
 	}
 }
 
-/*void Docfile(int a[], int&n)
+void Docfile(int a[], int&n)
 {
-	string s;
+	char t[100];
 	cout<<"Nhap ten file: ";
+	ifstream fin(t);
 	cin.ignore();
-	cin.getline(s,100);
-	fstream fin(s);
-
-	do
+	cin.getline(t,100);
+	if(!fin.is_open())
 	{
-
-	}while(!eof());
+		cout<<"Loi\n";
+		return ;
+	}
+	while(!fin.eof())
+	{
+		fin>>a[n++]; 
+	}
+	fin.close();
 }
 
 void Ghifile(int a[], int &n)
 { 
-	string t;
+	char t[100];
 	cout<<"Nhap ten file: ";
 	cin.ignore();
 	cin.getline(t,100);
-	ofstream fout(t);
-	for (int i = 0; i<n; ++i)
+	ofstream f(t);
+	cout<<"Luu vao file dang thuc thi?\n1.Co\n2.Khong\n";
+	int flag;
+	cin>>flag;
+	if(flag == 1)
 	{
-		fout<<a[i];
+		while(!f.eof())
+		{
+			f<<a[n++];
+		}
 	}
-}*/
+	else
+	{
+		n = 0;
+		while(!f.eof())
+		{
+			f<<a[n++];
+		}
+	}
+	f.close();
+}
 
-void Sinhso(int &a[], int &n)
+void Sinhso(int a[], int &n)
 {
+	srand(time(NULL));
 	int j;
 	cout<<"Nhap so luong so: ";
 	cin>>j;
-	srand(time(NULL));
-	for(int i = n; i<n+j-1; i++)
+	n+=j;
+	for(int i = n; i<n; i++)
 	{
-		a[i] = rand()%1000;
+		a[i] = rand();
 	}
+
 }
