@@ -83,10 +83,24 @@ void Sinhso(int a[], int &n)
 	int j;
 	cout<<"Nhap so luong so: ";
 	cin>>j;
-	n+=j;
-	for(int i = n; i<n; i++)
+	n += j;
+	cout<<"Luu vao file dang thuc thi?\n1.Co\n2.Khong\n";
+	int flag;
+	cin>>flag;
+	if(flag == 1)
 	{
-		a[i] = rand();
+		n += j;
+		for (int i = n-1; i<n; ++i)
+		{
+			a[i] = rand()%100000;
+		}
 	}
-
+	else
+	{
+		n = 0;
+		for (int i = 0; i<j; ++i)
+		{
+			a[i] = rand()%100000;
+		}
+	}
 }
