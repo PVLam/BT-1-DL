@@ -84,7 +84,7 @@ void Sinhso(int a[], int &n)
 	cout<<"Nhap so luong so: ";
 	cin>>j;
 	n += j;
-	cout<<"Luu vao file dang thuc thi?\n1.Co\n2.Khong\n";
+	cout<<"Luu vao file dang thuc thi?\n1.Co \n2.Khong \n";
 	int flag;
 	cin>>flag;
 	if(flag == 1)
